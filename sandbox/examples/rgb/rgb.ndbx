@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="d24ca8f6-f56e-4f63-a8c3-136401c3f264">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network">
+        <node name="Blue" position="8.00,3.00" prototype="color.color">
+            <port name="color" type="color" value="#0000ffff"/>
+        </node>
+        <node name="Green" position="6.00,2.00" prototype="color.color">
+            <port name="color" type="color" value="#00ff00ff"/>
+        </node>
+        <node name="Red" position="4.00,1.00" prototype="color.color">
+            <port name="color" type="color" value="#ff0000ff"/>
+        </node>
+        <node name="add1" position="0.00,4.00" prototype="math.add">
+            <port name="value2" type="float" value="1.0"/>
+        </node>
+        <node name="colorize1" position="7.00,10.00" prototype="corevector.colorize"/>
+        <node name="combine1" position="-1.00,1.00" prototype="list.combine"/>
+        <node name="count1" position="0.00,3.00" prototype="list.count"/>
+        <node name="ellipse1" position="4.00,8.00" prototype="corevector.ellipse"/>
+        <node name="frame1" position="11.00,4.00" prototype="core.frame"/>
+        <node name="mod1" position="11.00,6.00" prototype="math.mod">
+            <port name="value2" type="float" value="3.0"/>
+        </node>
+        <node name="range1" position="0.00,5.00" prototype="math.range">
+            <port name="start" type="float" value="1.0"/>
+            <port name="end" type="float" value="4.0"/>
+        </node>
+        <node name="repeat1" position="0.00,6.00" prototype="list.repeat">
+            <port name="amount" type="int" value="33"/>
+        </node>
+        <node name="shuffle1" position="-3.00,5.00" prototype="list.shuffle"/>
+        <node name="subtract1" position="11.00,5.00" prototype="math.subtract">
+            <port name="value2" type="float" value="1.0"/>
+        </node>
+        <node name="switch1" position="8.00,7.00" prototype="list.switch"/>
+        <conn input="shuffle1.list" output="combine1"/>
+        <conn input="repeat1.list" output="range1"/>
+        <conn input="count1.list" output="combine1"/>
+        <conn input="add1.value1" output="count1"/>
+        <conn input="range1.end" output="add1"/>
+        <conn input="colorize1.shape" output="ellipse1"/>
+        <conn input="subtract1.value1" output="frame1"/>
+        <conn input="mod1.value1" output="subtract1"/>
+        <conn input="switch1.index" output="mod1"/>
+        <conn input="colorize1.fill" output="switch1"/>
+        <conn input="switch1.input1" output="Red"/>
+        <conn input="switch1.input2" output="Green"/>
+        <conn input="switch1.input3" output="Blue"/>
+    </node>
+</ndbx>

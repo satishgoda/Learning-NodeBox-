@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="d24ca8f6-f56e-4f63-a8c3-136401c3f264">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="mod2">
+        <node name="Blue" position="9.00,6.00" prototype="color.color">
+            <port name="color" type="color" value="#0000ffff"/>
+        </node>
+        <node name="Green" position="7.00,5.00" prototype="color.color">
+            <port name="color" type="color" value="#00ff00ff"/>
+        </node>
+        <node name="Red" position="5.00,4.00" prototype="color.color">
+            <port name="color" type="color" value="#ff0000ff"/>
+        </node>
+        <node name="colorize1" position="7.00,11.00" prototype="corevector.colorize"/>
+        <node name="divide1" position="13.00,3.00" prototype="math.divide">
+            <port name="value2" type="float" value="24.0"/>
+        </node>
+        <node name="ellipse1" position="5.00,9.00" prototype="corevector.ellipse"/>
+        <node name="floor1" position="13.00,5.00" prototype="math.floor"/>
+        <node name="frame1" position="13.00,1.00" prototype="core.frame"/>
+        <node name="mod2" position="13.00,7.00" prototype="math.mod">
+            <port name="value2" type="float" value="3.0"/>
+        </node>
+        <node name="switch1" position="9.00,9.00" prototype="list.switch"/>
+        <conn input="colorize1.shape" output="ellipse1"/>
+        <conn input="colorize1.fill" output="switch1"/>
+        <conn input="switch1.input1" output="Red"/>
+        <conn input="switch1.input2" output="Green"/>
+        <conn input="switch1.input3" output="Blue"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="floor1.value" output="divide1"/>
+        <conn input="switch1.index" output="mod2"/>
+        <conn input="mod2.value1" output="floor1"/>
+    </node>
+</ndbx>
