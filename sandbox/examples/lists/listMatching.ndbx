@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="98f6bd76-a395-40d0-beee-573f8fc682e0">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="colorize1">
+        <node name="color1" position="5.00,1.00" prototype="color.color">
+            <port name="color" type="color" value="#ff0000ff"/>
+        </node>
+        <node name="color2" position="8.00,1.00" prototype="color.color">
+            <port name="color" type="color" value="#00ff2fff"/>
+        </node>
+        <node name="color3" position="11.00,1.00" prototype="color.color">
+            <port name="color" type="color" value="#0000ffff"/>
+        </node>
+        <node name="colorize1" position="6.00,7.00" prototype="corevector.colorize">
+            <port name="strokeWidth" type="float" value="0.2"/>
+        </node>
+        <node name="combine1" position="8.00,3.00" prototype="list.combine"/>
+        <node name="divide1" position="11.00,3.00" prototype="math.divide">
+            <port name="value2" type="float" value="24.0"/>
+        </node>
+        <node name="floor1" position="11.00,4.00" prototype="math.floor"/>
+        <node name="frame1" position="11.00,2.00" prototype="core.frame"/>
+        <node name="grid1" position="2.00,1.00" prototype="corevector.grid">
+            <port name="width" type="float" value="575.0"/>
+            <port name="height" type="float" value="575.0"/>
+        </node>
+        <node name="integer1" position="-1.00,2.00" prototype="math.integer"/>
+        <node name="make_numbers1" position="-1.00,1.00" prototype="math.make_numbers">
+            <port name="string" type="string" value="1,2,3,4,5"/>
+            <port name="separator" type="string" value=","/>
+        </node>
+        <node name="shift1" position="8.00,5.00" prototype="list.shift"/>
+        <node name="textpath1" position="-1.00,3.00" prototype="corevector.textpath">
+            <port name="font_name" type="string" value="AR CARTER"/>
+            <port name="font_size" type="float" value="48.0"/>
+        </node>
+        <conn input="integer1.value" output="make_numbers1"/>
+        <conn input="textpath1.text" output="integer1"/>
+        <conn input="colorize1.shape" output="textpath1"/>
+        <conn input="textpath1.position" output="grid1"/>
+        <conn input="combine1.list1" output="color1"/>
+        <conn input="combine1.list2" output="color2"/>
+        <conn input="combine1.list3" output="color3"/>
+        <conn input="shift1.list" output="combine1"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="floor1.value" output="divide1"/>
+        <conn input="shift1.amount" output="floor1"/>
+        <conn input="colorize1.fill" output="shift1"/>
+    </node>
+</ndbx>
