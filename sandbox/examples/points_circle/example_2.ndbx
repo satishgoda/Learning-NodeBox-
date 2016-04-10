@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="0b9915d7-fca6-45e9-8297-910b4b4deb7c">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="colorize">
+        <node name="circle_radius" position="4.00,5.00" prototype="math.number">
+            <port name="value" type="float" value="48.0"/>
+        </node>
+        <node position="6.00,9.00" prototype="corevector.colorize">
+            <port name="strokeWidth" type="float" value="4.0"/>
+        </node>
+        <node name="distinct_points" position="3.00,4.00" prototype="list.distinct"/>
+        <node name="divide1" position="11.00,2.00" prototype="math.divide">
+            <port name="value2" type="float" value="24.0"/>
+        </node>
+        <node name="floor1" position="11.00,3.00" prototype="math.floor"/>
+        <node name="frame1" position="11.00,1.00" prototype="core.frame"/>
+        <node name="point_create" position="1.00,2.00" prototype="corevector.point">
+            <port name="value" type="point" value="298.00,0.00"/>
+        </node>
+        <node name="rgb_as_color" position="8.00,3.00" prototype="color.color"/>
+        <node name="rgb_as_hex" position="8.00,2.00" prototype="string.make_strings">
+            <port name="string" type="string" value="#ff0000ff #00ff00ff #0000ffff"/>
+            <port name="separator" type="string" value=" "/>
+        </node>
+        <node name="rotate_points" position="3.00,3.00" prototype="corevector.rotate"/>
+        <node name="sample_angles" position="5.00,2.00" prototype="math.sample">
+            <port name="amount" type="int" value="36"/>
+            <port name="end" type="float" value="360.0"/>
+        </node>
+        <node name="shift1" position="10.00,5.00" prototype="list.shift"/>
+        <node name="shift2" position="10.00,7.00" prototype="list.shift"/>
+        <node name="stamp_circle" position="3.00,6.00" prototype="corevector.ellipse"/>
+        <conn input="stamp_circle.width" output="circle_radius"/>
+        <conn input="stamp_circle.height" output="circle_radius"/>
+        <conn input="stamp_circle.position" output="distinct_points"/>
+        <conn input="distinct_points.list" output="rotate_points"/>
+        <conn input="rotate_points.shape" output="point_create"/>
+        <conn input="rotate_points.angle" output="sample_angles"/>
+        <conn input="rgb_as_color.color" output="rgb_as_hex"/>
+        <conn input="colorize.shape" output="stamp_circle"/>
+        <conn input="shift1.list" output="rgb_as_color"/>
+        <conn input="colorize.fill" output="shift1"/>
+        <conn input="divide1.value1" output="frame1"/>
+        <conn input="floor1.value" output="divide1"/>
+        <conn input="shift1.amount" output="floor1"/>
+        <conn input="colorize.stroke" output="shift2"/>
+        <conn input="shift2.list" output="shift1"/>
+    </node>
+</ndbx>
