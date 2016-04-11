@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="488ba438-eab0-4717-bcfe-9974c320ed9c">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="colorize2">
+        <node name="colorize1" position="12.00,8.00" prototype="corevector.colorize">
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="colorize2" position="4.00,9.00" prototype="corevector.colorize">
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="ellipse1" position="1.00,0.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="200.0"/>
+            <port name="height" type="float" value="200.0"/>
+        </node>
+        <node name="first1" position="1.00,7.00" prototype="list.first"/>
+        <node name="freehand1" position="9.00,-1.00" prototype="corevector.freehand">
+            <port name="path" type="string" value="M2.00,0.50  3.00,0.50  4.00,0.50  5.00,0.50  6.00,0.50  7.00,0.50  8.00,0.50  9.00,0.50  10.00,0.50  11.00,0.50  12.00,0.50  13.00,0.50  14.00,0.50  15.00,0.50  16.00,0.50  17.00,0.50  18.00,0.50  19.00,0.50  20.00,0.50  21.00,0.50  22.00,0.50  23.00,0.50  24.00,0.50  25.00,0.50  26.00,0.50  27.00,0.50  28.00,0.50  29.00,0.50  30.00,0.50  31.00,0.50  32.00,0.50  33.00,0.50  34.00,0.50  36.00,0.50  37.00,0.50  38.00,0.50  39.00,0.50  40.00,0.50  41.00,0.50  42.00,0.50  43.00,0.50  43.00,-0.50  44.00,-0.50  45.00,-0.50  46.00,-0.50  47.00,-0.50  48.00,-0.50  49.00,-0.50  50.00,-0.50  51.00,-0.50  52.00,-0.50  53.00,-0.50  54.00,-0.50  55.00,-0.50  56.00,-0.50  57.00,-0.50  58.00,-0.50  59.00,-0.50  60.00,-1.50  61.00,-1.50  62.00,-1.50  63.00,-1.50  64.00,-1.50  65.00,-1.50  67.00,-1.50  68.00,-1.50  69.00,-1.50  70.00,-1.50  71.00,-1.50  72.00,-1.50  73.00,-1.50  76.00,-1.50  77.00,-1.50  79.00,-1.50  80.00,-2.50  82.00,-2.50  83.00,-2.50  84.00,-2.50  85.00,-2.50  86.00,-2.50  87.00,-2.50  88.00,-2.50  89.00,-2.50  90.00,-2.50  91.00,-2.50  92.00,-2.50  94.00,-2.50  95.00,-2.50  97.00,-2.50  98.00,-2.50  100.00,-2.50  101.00,-2.50  103.00,-2.50  104.00,-2.50  105.00,-2.50  106.00,-2.50  107.00,-2.50  108.00,-2.50  108.00,-1.50  110.00,-1.50  111.00,-1.50  113.00,-1.50  115.00,-1.50  116.00,-1.50  117.00,-1.50  118.00,-1.50  119.00,-1.50  120.00,-1.50  121.00,-1.50  122.00,-1.50  123.00,-1.50  125.00,-1.50  126.00,-1.50  127.00,-1.50  128.00,-1.50  129.00,-1.50  131.00,-1.50  133.00,-1.50  134.00,-1.50  136.00,-1.50  137.00,-1.50  140.00,-2.50  142.00,-3.50  143.00,-3.50  144.00,-3.50  146.00,-3.50  147.00,-3.50  148.00,-3.50  150.00,-4.50  151.00,-4.50  152.00,-4.50  153.00,-4.50  154.00,-4.50  155.00,-4.50  156.00,-4.50  157.00,-4.50  158.00,-4.50  159.00,-4.50  161.00,-4.50  162.00,-4.50  164.00,-4.50  165.00,-4.50  166.00,-4.50  167.00,-4.50  168.00,-4.50  169.00,-4.50  171.00,-4.50  172.00,-4.50  173.00,-4.50  175.00,-4.50  177.00,-4.50  179.00,-4.50  181.00,-4.50  182.00,-4.50  185.00,-4.50  186.00,-4.50  188.00,-4.50  189.00,-4.50  191.00,-4.50  192.00,-4.50  193.00,-4.50  195.00,-4.50  196.00,-4.50  197.00,-4.50  198.00,-4.50  200.00,-4.50  201.00,-4.50  202.00,-4.50  204.00,-4.50  205.00,-4.50  206.00,-4.50  207.00,-4.50  209.00,-4.50  212.00,-4.50  213.00,-4.50  214.00,-4.50  216.00,-4.50  217.00,-4.50  218.00,-4.50 "/>
+        </node>
+        <node name="line1" position="4.00,8.00" prototype="corevector.line"/>
+        <node name="line2" position="12.00,7.00" prototype="corevector.line"/>
+        <node name="point1" position="8.00,1.00" prototype="corevector.point"/>
+        <node name="point2" position="10.00,5.00" prototype="corevector.point"/>
+        <node name="point3" position="13.00,5.00" prototype="corevector.point">
+            <port name="value" type="point" value="71.00,0.00"/>
+        </node>
+        <node name="resample1" position="8.00,0.00" prototype="corevector.resample">
+            <port name="method" type="string" value="amount"/>
+            <port name="length" type="float" value="27.0"/>
+            <port name="points" type="int" value="14"/>
+        </node>
+        <node name="scatter1" position="1.00,1.00" prototype="corevector.scatter"/>
+        <node name="shift1" position="1.00,6.00" prototype="list.shift"/>
+        <node name="slice1" position="6.00,4.00" prototype="list.slice">
+            <port name="size" type="int" value="1"/>
+        </node>
+        <node name="sort1" position="1.00,5.00" prototype="corevector.sort">
+            <port name="order_by" type="string" value="distance"/>
+        </node>
+        <node name="switch1" position="5.00,3.00" prototype="list.switch">
+            <port name="index" type="int" value="1"/>
+        </node>
+        <conn input="resample1.shape" output="freehand1"/>
+        <conn input="first1.list" output="shift1"/>
+        <conn input="shift1.list" output="sort1"/>
+        <conn input="line1.point2" output="slice1"/>
+        <conn input="line1.point1" output="first1"/>
+        <conn input="point1.value" output="resample1"/>
+        <conn input="scatter1.shape" output="ellipse1"/>
+        <conn input="line2.point1" output="point2"/>
+        <conn input="line2.point2" output="point3"/>
+        <conn input="colorize1.shape" output="line2"/>
+        <conn input="colorize2.shape" output="line1"/>
+        <conn input="switch1.input1" output="scatter1"/>
+        <conn input="switch1.input2" output="point1"/>
+        <conn input="slice1.list" output="switch1"/>
+        <conn input="sort1.shapes" output="switch1"/>
+        <conn input="sort1.position" output="slice1"/>
+    </node>
+</ndbx>
