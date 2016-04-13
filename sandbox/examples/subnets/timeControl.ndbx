@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="89294169-2fbd-4fb8-9854-b4e271aa2310">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine2">
+        <node name="TimeControl" position="-15.00,4.00" prototype="core.network" renderedChild="floor1">
+            <node name="divide1" position="0.00,3.00" prototype="math.divide"/>
+            <node name="floor1" position="0.00,4.00" prototype="math.floor"/>
+            <node name="frame1" position="0.00,2.00" prototype="core.frame"/>
+            <port childReference="divide1.value2" description="" label="" name="fps" range="value" type="float" value="1.0" widget="float"/>
+            <conn input="divide1.value1" output="frame1"/>
+            <conn input="floor1.value" output="divide1"/>
+        </node>
+        <node name="TimeControl1" position="5.00,4.00" prototype="core.network" renderedChild="mod1">
+            <node name="divide1" position="2.00,3.00" prototype="math.divide">
+                <port name="value2" type="float" value="24.0"/>
+            </node>
+            <node name="floor1" position="2.00,4.00" prototype="math.floor"/>
+            <node name="frame1" position="2.00,2.00" prototype="core.frame"/>
+            <node name="mod1" position="2.00,5.00" prototype="math.mod"/>
+            <port childReference="divide1.value2" description="" label="" name="fps" range="value" type="float" value="24.0" widget="float"/>
+            <port childReference="mod1.value2" description="" label="" name="cycleAt" range="value" type="float" value="1.0" widget="float"/>
+            <conn input="divide1.value1" output="frame1"/>
+            <conn input="floor1.value" output="divide1"/>
+            <conn input="mod1.value1" output="floor1"/>
+        </node>
+        <node name="TimeControl2" position="10.00,4.00" prototype="core.network" renderedChild="mod1">
+            <node name="divide1" position="2.00,3.00" prototype="math.divide">
+                <port name="value2" type="float" value="24.0"/>
+            </node>
+            <node name="floor1" position="2.00,4.00" prototype="math.floor"/>
+            <node name="frame1" position="2.00,2.00" prototype="core.frame"/>
+            <node name="mod1" position="2.00,5.00" prototype="math.mod"/>
+            <port childReference="divide1.value2" description="" label="" name="fps" range="value" type="float" value="24.0" widget="float"/>
+            <port childReference="mod1.value2" description="" label="" name="cycleAt" range="value" type="float" value="1.0" widget="float"/>
+            <conn input="divide1.value1" output="frame1"/>
+            <conn input="floor1.value" output="divide1"/>
+            <conn input="mod1.value1" output="floor1"/>
+        </node>
+        <node name="add1" position="9.00,6.00" prototype="math.add">
+            <port name="value2" type="float" value="75.0"/>
+        </node>
+        <node name="combine1" position="-14.00,8.00" prototype="list.combine"/>
+        <node name="combine2" position="2.00,10.00" prototype="list.combine"/>
+        <node name="count1" position="7.00,0.00" prototype="list.count"/>
+        <node name="first1" position="-18.00,4.00" prototype="list.first"/>
+        <node name="grid1" position="3.00,1.00" prototype="corevector.grid">
+            <port name="rows" type="int" value="1"/>
+        </node>
+        <node name="integer1" position="1.00,-1.00" prototype="math.integer"/>
+        <node name="make_point1" position="-15.00,5.00" prototype="corevector.make_point"/>
+        <node name="make_point2" position="10.00,8.00" prototype="corevector.make_point"/>
+        <node name="multiply1" position="12.00,6.00" prototype="math.multiply">
+            <port name="value1" type="float" value="24.0"/>
+            <port name="value2" type="float" value="12.0"/>
+        </node>
+        <node name="null1" position="-15.00,2.00" prototype="corevector.null"/>
+        <node name="null2" position="1.00,4.00" prototype="corevector.null"/>
+        <node name="random_numbers1" position="1.00,-2.00" prototype="math.random_numbers">
+            <port name="end" type="float" value="9.0"/>
+            <port name="seed" type="int" value="13"/>
+        </node>
+        <node name="rest1" position="-11.00,4.00" prototype="list.rest"/>
+        <node name="slice1" position="1.00,7.00" prototype="list.slice">
+            <port name="size" type="int" value="1"/>
+            <port name="invert" type="boolean" value="true"/>
+        </node>
+        <node name="slice2" position="5.00,7.00" prototype="list.slice">
+            <port name="size" type="int" value="1"/>
+        </node>
+        <node name="switch1" position="10.00,7.00" prototype="list.switch">
+            <port name="index" type="int" value="1"/>
+        </node>
+        <node name="textpath1" position="1.00,2.00" prototype="corevector.textpath">
+            <port name="text" type="string" value=""/>
+        </node>
+        <node name="translate1" position="-16.00,6.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="0.00,234.00"/>
+        </node>
+        <node name="translate2" position="5.00,9.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="0.00,234.00"/>
+        </node>
+        <conn input="integer1.value" output="random_numbers1"/>
+        <conn input="grid1.columns" output="count1"/>
+        <conn input="textpath1.position" output="grid1"/>
+        <conn input="count1.list" output="integer1"/>
+        <conn input="textpath1.text" output="integer1"/>
+        <conn input="translate1.shape" output="first1"/>
+        <conn input="combine1.list1" output="translate1"/>
+        <conn input="combine1.list2" output="rest1"/>
+        <conn input="translate1.translate" output="make_point1"/>
+        <conn input="make_point1.y" output="TimeControl"/>
+        <conn input="slice1.start_index" output="TimeControl1"/>
+        <conn input="slice2.start_index" output="TimeControl1"/>
+        <conn input="translate2.translate" output="make_point2"/>
+        <conn input="translate2.shape" output="slice2"/>
+        <conn input="combine2.list1" output="slice1"/>
+        <conn input="combine2.list2" output="translate2"/>
+        <conn input="switch1.input1" output="add1"/>
+        <conn input="switch1.input2" output="multiply1"/>
+        <conn input="make_point2.y" output="switch1"/>
+        <conn input="TimeControl1.cycleAt" output="count1"/>
+        <conn input="TimeControl2.cycleAt" output="count1"/>
+        <conn input="add1.value1" output="TimeControl2"/>
+        <conn input="multiply1.value1" output="TimeControl2"/>
+        <conn input="first1.list" output="null1"/>
+        <conn input="rest1.list" output="null1"/>
+        <conn input="null2.shape" output="textpath1"/>
+        <conn input="slice1.list" output="null2"/>
+        <conn input="slice2.list" output="null2"/>
+    </node>
+</ndbx>
