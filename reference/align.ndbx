@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="e1e92d0c-08e7-46c5-a36c-5dca39da2f68">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="align2">
+        <node name="align1" position="3.00,3.00" prototype="corevector.align">
+            <port name="halign" type="string" value="left"/>
+            <port name="valign" type="string" value="bottom"/>
+        </node>
+        <node name="align2" position="7.00,3.00" prototype="corevector.align">
+            <port name="halign" type="string" value="left"/>
+            <port name="valign" type="string" value="bottom"/>
+        </node>
+        <node name="polygon1" position="7.00,1.00" prototype="corevector.polygon"/>
+        <node name="rect1" position="2.00,1.00" prototype="corevector.rect"/>
+        <conn input="align1.shape" output="rect1"/>
+        <conn input="align2.shape" output="polygon1"/>
+    </node>
+</ndbx>
