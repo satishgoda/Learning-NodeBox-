@@ -6,9 +6,9 @@
     <property name="canvasY" value="0"/>
     <node name="root" prototype="core.network" renderedChild="combine3">
         <node name="angle1" position="4.00,3.00" prototype="math.angle"/>
-        <node name="combine1" position="2.00,4.00" prototype="list.combine"/>
+        <node name="combine1" position="1.00,4.00" prototype="list.combine"/>
         <node name="combine3" position="4.00,7.00" prototype="list.combine"/>
-        <node name="ellipse1" position="2.00,5.00" prototype="corevector.ellipse">
+        <node name="ellipse1" position="1.00,5.00" prototype="corevector.ellipse">
             <port name="width" type="float" value="10.0"/>
             <port name="height" type="float" value="10.0"/>
         </node>
