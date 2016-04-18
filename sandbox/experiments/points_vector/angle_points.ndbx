@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="fd061db9-f213-48cc-9abd-82ed45f43678">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="angle1" position="-3.00,10.00" prototype="math.angle"/>
+        <node name="combine1" position="0.00,14.00" prototype="list.combine"/>
+        <node name="combine2" position="-6.00,9.00" prototype="list.combine"/>
+        <node name="combine3" position="6.00,12.00" prototype="list.combine"/>
+        <node name="coordinates1" position="4.00,10.00" prototype="math.coordinates">
+            <port name="angle" type="float" value="-90.0"/>
+            <port name="distance" type="float" value="-19.0"/>
+        </node>
+        <node name="coordinates2" position="7.00,10.00" prototype="math.coordinates">
+            <port name="angle" type="float" value="-90.0"/>
+            <port name="distance" type="float" value="10.0"/>
+        </node>
+        <node name="ellipse1" position="-9.00,9.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="10.0"/>
+            <port name="height" type="float" value="10.0"/>
+        </node>
+        <node name="freehand1" position="-2.00,5.00" prototype="corevector.freehand"/>
+        <node name="freehand2" position="1.00,5.00" prototype="corevector.freehand">
+            <port name="path" type="string" value="M186.00,156.50  186.00,157.50 "/>
+        </node>
+        <node name="number1" position="6.00,7.00" prototype="math.number">
+            <port name="value" type="float" value="-45.0"/>
+        </node>
+        <node name="point1" position="-2.00,7.00" prototype="corevector.point"/>
+        <node name="point2" position="1.00,7.00" prototype="corevector.point"/>
+        <node name="polygon1" position="1.00,9.00" prototype="corevector.polygon">
+            <port name="position" type="point" value="14.00,0.00"/>
+            <port name="radius" type="float" value="13.0"/>
+        </node>
+        <node name="resample1" position="-2.00,6.00" prototype="corevector.resample">
+            <port name="method" type="string" value="amount"/>
+            <port name="points" type="int" value="1"/>
+        </node>
+        <node name="resample2" position="1.00,6.00" prototype="corevector.resample">
+            <port name="method" type="string" value="amount"/>
+            <port name="points" type="int" value="1"/>
+        </node>
+        <node name="rotate1" position="1.00,10.00" prototype="corevector.rotate"/>
+        <node name="textpath1" position="-3.00,11.00" prototype="corevector.textpath">
+            <port name="font_size" type="float" value="15.0"/>
+            <port name="position" type="point" value="66.00,60.00"/>
+        </node>
+        <node name="textpath2" position="4.00,11.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="P1"/>
+            <port name="font_size" type="float" value="10.0"/>
+            <port name="align" type="string" value="LEFT"/>
+        </node>
+        <node name="textpath3" position="7.00,11.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="P2"/>
+            <port name="font_size" type="float" value="10.0"/>
+        </node>
+        <node name="translate1" position="-7.00,10.00" prototype="corevector.translate"/>
+        <node name="translate2" position="1.00,11.00" prototype="corevector.translate"/>
+        <conn input="angle1.point1" output="point1"/>
+        <conn input="angle1.point2" output="point2"/>
+        <conn input="textpath1.text" output="angle1"/>
+        <conn input="combine2.list1" output="point1"/>
+        <conn input="combine2.list2" output="point2"/>
+        <conn input="translate1.translate" output="combine2"/>
+        <conn input="translate1.shape" output="ellipse1"/>
+        <conn input="combine1.list1" output="translate1"/>
+        <conn input="resample1.shape" output="freehand1"/>
+        <conn input="point1.value" output="resample1"/>
+        <conn input="resample2.shape" output="freehand2"/>
+        <conn input="point2.value" output="resample2"/>
+        <conn input="combine3.list1" output="textpath2"/>
+        <conn input="combine3.list2" output="textpath3"/>
+        <conn input="coordinates1.position" output="point1"/>
+        <conn input="textpath2.position" output="coordinates1"/>
+        <conn input="coordinates2.position" output="point2"/>
+        <conn input="textpath3.position" output="coordinates2"/>
+        <conn input="coordinates1.angle" output="number1"/>
+        <conn input="coordinates2.angle" output="number1"/>
+        <conn input="combine1.list2" output="textpath1"/>
+        <conn input="combine1.list3" output="combine3"/>
+        <conn input="rotate1.angle" output="angle1"/>
+        <conn input="rotate1.shape" output="polygon1"/>
+        <conn input="translate2.shape" output="rotate1"/>
+        <conn input="translate2.translate" output="point2"/>
+        <conn input="combine1.list4" output="translate2"/>
+    </node>
+</ndbx>
