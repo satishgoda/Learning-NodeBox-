@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="b83565db-9861-4004-b9eb-3cdf74e210de">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine2">
+        <node name="color1" position="-1.00,2.00" prototype="color.color"/>
+        <node name="colorize1" position="-3.00,4.00" prototype="corevector.colorize"/>
+        <node name="combine1" position="-5.00,1.00" prototype="list.combine"/>
+        <node name="combine2" position="0.00,9.00" prototype="list.combine"/>
+        <node name="ellipse1" position="-4.00,0.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="10.0"/>
+            <port name="height" type="float" value="10.0"/>
+        </node>
+        <node name="frame1" position="6.00,2.00" prototype="core.frame"/>
+        <node name="make_strings2" position="-1.00,1.00" prototype="string.make_strings">
+            <port name="string" type="string" value="#ff0000 #00ff00 #0000ff"/>
+            <port name="separator" type="string" value=" "/>
+        </node>
+        <node name="point1" position="4.00,5.00" prototype="corevector.point"/>
+        <node name="polygon1" position="3.00,1.00" prototype="corevector.polygon">
+            <port name="align" type="boolean" value="true"/>
+        </node>
+        <node name="rect1" position="-5.00,-1.00" prototype="corevector.rect">
+            <port name="width" type="float" value="10.0"/>
+            <port name="height" type="float" value="10.0"/>
+        </node>
+        <node name="resample1" position="4.00,4.00" prototype="corevector.resample">
+            <port name="method" type="string" value="amount"/>
+            <port name="length" type="float" value="4.0"/>
+            <port name="points" type="int" value="18"/>
+        </node>
+        <node name="rotate1" position="3.00,3.00" prototype="corevector.rotate">
+            <port name="angle" type="float" value="49.0"/>
+        </node>
+        <node name="translate1" position="2.00,7.00" prototype="corevector.translate"/>
+        <conn input="combine1.list1" output="rect1"/>
+        <conn input="combine1.list2" output="ellipse1"/>
+        <conn input="point1.value" output="resample1"/>
+        <conn input="color1.color" output="make_strings2"/>
+        <conn input="colorize1.shape" output="combine1"/>
+        <conn input="colorize1.fill" output="color1"/>
+        <conn input="translate1.shape" output="colorize1"/>
+        <conn input="combine2.list2" output="translate1"/>
+        <conn input="combine2.list1" output="rotate1"/>
+        <conn input="resample1.shape" output="rotate1"/>
+        <conn input="translate1.translate" output="point1"/>
+        <conn input="rotate1.shape" output="polygon1"/>
+        <conn input="rotate1.angle" output="frame1"/>
+    </node>
+</ndbx>
