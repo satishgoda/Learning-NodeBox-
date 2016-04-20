@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="db8da0a2-95b7-4921-93ab-d0240d53175f">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine2">
+        <node name="colorize1" position="7.00,12.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#00000000"/>
+            <port name="strokeWidth" type="float" value="2.0"/>
+        </node>
+        <node name="colorize2" position="2.00,12.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#00000000"/>
+            <port name="strokeWidth" type="float" value="2.0"/>
+        </node>
+        <node name="colorize3" position="13.00,12.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#000000b6"/>
+            <port name="strokeWidth" type="float" value="3.0"/>
+        </node>
+        <node name="combine1" position="17.00,9.00" prototype="list.combine"/>
+        <node name="combine2" position="7.00,14.00" prototype="list.combine"/>
+        <node name="connect1" position="7.00,11.00" prototype="corevector.connect">
+            <port name="closed" type="boolean" value="false"/>
+        </node>
+        <node name="connect2" position="2.00,11.00" prototype="corevector.connect">
+            <port name="closed" type="boolean" value="false"/>
+        </node>
+        <node name="connect3" position="13.00,11.00" prototype="corevector.connect"/>
+        <node name="coordinates1" position="7.00,10.00" prototype="math.coordinates">
+            <port name="distance" type="float" value="104.0"/>
+        </node>
+        <node name="coordinates2" position="2.00,10.00" prototype="math.coordinates">
+            <port name="distance" type="float" value="104.0"/>
+        </node>
+        <node name="coordinates3" position="13.00,10.00" prototype="math.coordinates"/>
+        <node name="freehand2" position="7.00,4.00" prototype="corevector.freehand">
+            <port name="path" type="string" value="M154.27,387.54  154.27,389.23  155.97,389.23  155.97,387.54 "/>
+        </node>
+        <node name="freehand3" position="2.00,4.00" prototype="corevector.freehand">
+            <port name="path" type="string" value="M-266.03,-378.66  -266.03,-376.93  -266.03,-375.20  -266.03,-376.93 "/>
+        </node>
+        <node name="freehand4" position="13.00,4.00" prototype="corevector.freehand"/>
+        <node name="point2" position="7.00,6.00" prototype="corevector.point"/>
+        <node name="point3" position="2.00,6.00" prototype="corevector.point"/>
+        <node name="point4" position="13.00,6.00" prototype="corevector.point"/>
+        <node name="range1" position="17.00,7.00" prototype="math.range">
+            <port name="start" type="float" value="99.0"/>
+            <port name="end" type="float" value="150.0"/>
+            <port name="step" type="float" value="48.0"/>
+        </node>
+        <node name="resample2" position="7.00,5.00" prototype="corevector.resample">
+            <port name="method" type="string" value="amount"/>
+            <port name="points" type="int" value="1"/>
+        </node>
+        <node name="resample3" position="2.00,5.00" prototype="corevector.resample">
+            <port name="method" type="string" value="amount"/>
+            <port name="points" type="int" value="1"/>
+        </node>
+        <node name="resample4" position="13.00,5.00" prototype="corevector.resample">
+            <port name="method" type="string" value="amount"/>
+            <port name="points" type="int" value="1"/>
+        </node>
+        <node name="reverse1" position="18.00,8.00" prototype="list.reverse"/>
+        <node name="sample1" position="8.00,7.00" prototype="math.sample">
+            <port name="amount" type="int" value="40"/>
+            <port name="end" type="float" value="360.0"/>
+        </node>
+        <node name="sample2" position="8.00,9.00" prototype="math.sample">
+            <port name="amount" type="int" value="200"/>
+            <port name="end" type="float" value="200.0"/>
+        </node>
+        <node name="sample3" position="3.00,8.00" prototype="math.sample">
+            <port name="amount" type="int" value="40"/>
+            <port name="end" type="float" value="360.0"/>
+        </node>
+        <node name="sample4" position="14.00,8.00" prototype="math.sample">
+            <port name="amount" type="int" value="105"/>
+            <port name="end" type="float" value="360.0"/>
+        </node>
+        <conn input="coordinates1.angle" output="sample1"/>
+        <conn input="connect1.points" output="coordinates1"/>
+        <conn input="colorize1.shape" output="connect1"/>
+        <conn input="coordinates1.distance" output="sample2"/>
+        <conn input="coordinates2.angle" output="sample3"/>
+        <conn input="resample2.shape" output="freehand2"/>
+        <conn input="point2.value" output="resample2"/>
+        <conn input="connect2.points" output="coordinates2"/>
+        <conn input="colorize2.shape" output="connect2"/>
+        <conn input="coordinates1.position" output="point2"/>
+        <conn input="reverse1.list" output="range1"/>
+        <conn input="combine1.list1" output="range1"/>
+        <conn input="combine1.list2" output="reverse1"/>
+        <conn input="coordinates3.angle" output="sample4"/>
+        <conn input="coordinates3.distance" output="combine1"/>
+        <conn input="connect3.points" output="coordinates3"/>
+        <conn input="colorize3.shape" output="connect3"/>
+        <conn input="resample3.shape" output="freehand3"/>
+        <conn input="point3.value" output="resample3"/>
+        <conn input="coordinates2.position" output="point3"/>
+        <conn input="resample4.shape" output="freehand4"/>
+        <conn input="point4.value" output="resample4"/>
+        <conn input="coordinates3.position" output="point4"/>
+        <conn input="combine2.list1" output="colorize2"/>
+        <conn input="combine2.list2" output="colorize1"/>
+        <conn input="combine2.list3" output="colorize3"/>
+    </node>
+</ndbx>
