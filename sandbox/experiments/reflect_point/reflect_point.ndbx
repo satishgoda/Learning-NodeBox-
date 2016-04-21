@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="c67aff6c-5ed2-4f66-8723-a832d19a3113">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine2">
+        <node name="Reflect" position="8.00,2.00" prototype="core.network" renderedChild="make_point2">
+            <node name="lookup1" position="-1.00,2.00" prototype="data.lookup"/>
+            <node name="lookup2" position="2.00,2.00" prototype="data.lookup">
+                <port name="key" type="string" value="y"/>
+            </node>
+            <node name="make_point2" position="1.00,4.00" prototype="corevector.make_point"/>
+            <node name="multiply1" position="-1.00,3.00" prototype="math.multiply">
+                <port name="value2" type="float" value="-1.0"/>
+            </node>
+            <node name="multiply2" position="2.00,3.00" prototype="math.multiply">
+                <port name="value2" type="float" value="-1.0"/>
+            </node>
+            <node name="null1" outputType="point" position="1.00,1.00" prototype="corevector.null">
+                <port description="" label="" name="point" range="value" type="point" value="0.00,0.00" widget="point"/>
+            </node>
+            <port childReference="null1.point" description="" label="" name="point" range="value" type="point" value="0.00,0.00" widget="point"/>
+            <conn input="multiply1.value1" output="lookup1"/>
+            <conn input="multiply2.value1" output="lookup2"/>
+            <conn input="make_point2.x" output="multiply1"/>
+            <conn input="make_point2.y" output="multiply2"/>
+            <conn input="lookup1.list" output="null1"/>
+            <conn input="lookup2.list" output="null1"/>
+        </node>
+        <node name="combine1" position="8.00,4.00" prototype="list.combine"/>
+        <node name="combine2" position="3.00,11.00" prototype="list.combine"/>
+        <node name="combine3" position="7.00,11.00" prototype="list.combine"/>
+        <node name="concatenate1" position="7.00,9.00" prototype="string.concatenate">
+            <port name="string2" type="string" value=","/>
+        </node>
+        <node name="first1" position="4.00,7.00" prototype="list.first"/>
+        <node name="last1" position="7.00,7.00" prototype="list.last"/>
+        <node name="lookup1" position="1.00,4.00" prototype="data.lookup"/>
+        <node name="lookup3" position="15.00,2.00" prototype="data.lookup">
+            <port name="key" type="string" value="y"/>
+        </node>
+        <node name="lookup4" position="12.00,2.00" prototype="data.lookup"/>
+        <node name="make_point1" position="5.00,1.00" prototype="corevector.make_point">
+            <port name="x" type="float" value="-126.0"/>
+            <port name="y" type="float" value="83.0"/>
+        </node>
+        <node name="make_point2" position="4.00,9.00" prototype="corevector.make_point"/>
+        <node name="make_point3" position="14.00,4.00" prototype="corevector.make_point"/>
+        <node name="make_strings1" position="2.00,3.00" prototype="string.make_strings">
+            <port name="string" type="string" value="x,y"/>
+            <port name="separator" type="string" value=","/>
+        </node>
+        <node name="multiply1" position="5.00,6.00" prototype="math.multiply">
+            <port name="value2" type="float" value="-1.0"/>
+        </node>
+        <node name="multiply3" position="12.00,3.00" prototype="math.multiply">
+            <port name="value2" type="float" value="-1.0"/>
+        </node>
+        <node name="multiply4" position="15.00,3.00" prototype="math.multiply">
+            <port name="value2" type="float" value="-1.0"/>
+        </node>
+        <node name="null2" outputType="point" position="14.00,1.00" prototype="corevector.null">
+            <port description="" label="" name="point" range="value" type="point" value="0.00,0.00" widget="point"/>
+        </node>
+        <node name="point1" position="-1.00,6.00" prototype="corevector.point"/>
+        <node name="point2" position="8.00,10.00" prototype="corevector.point"/>
+        <conn input="combine1.list1" output="make_point1"/>
+        <conn input="multiply3.value1" output="lookup4"/>
+        <conn input="multiply4.value1" output="lookup3"/>
+        <conn input="make_point3.x" output="multiply3"/>
+        <conn input="make_point3.y" output="multiply4"/>
+        <conn input="lookup4.list" output="null2"/>
+        <conn input="lookup3.list" output="null2"/>
+        <conn input="Reflect.point" output="make_point1"/>
+        <conn input="combine1.list2" output="Reflect"/>
+        <conn input="lookup1.list" output="make_point1"/>
+        <conn input="lookup1.key" output="make_strings1"/>
+        <conn input="point1.value" output="lookup1"/>
+        <conn input="multiply1.value1" output="lookup1"/>
+        <conn input="first1.list" output="multiply1"/>
+        <conn input="last1.list" output="multiply1"/>
+        <conn input="concatenate1.string1" output="first1"/>
+        <conn input="concatenate1.string3" output="last1"/>
+        <conn input="point2.value" output="concatenate1"/>
+        <conn input="make_point2.x" output="first1"/>
+        <conn input="make_point2.y" output="last1"/>
+        <conn input="combine2.list2" output="make_point2"/>
+        <conn input="combine2.list1" output="make_point1"/>
+        <conn input="combine3.list1" output="make_point1"/>
+        <conn input="combine3.list2" output="point2"/>
+    </node>
+</ndbx>
