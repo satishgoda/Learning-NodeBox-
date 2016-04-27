@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="cb44b539-431e-41e3-9b25-e7b72168669c">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="ONBasis" position="3.00,3.00" prototype="core.network" renderedChild="make_point1">
+            <node name="add1" position="-1.00,10.00" prototype="math.add"/>
+            <node name="add2" position="4.00,10.00" prototype="math.add"/>
+            <node name="cos1" position="-1.00,7.00" prototype="math.cos"/>
+            <node name="getX" position="-1.00,3.00" prototype="data.lookup"/>
+            <node name="getY" position="2.00,3.00" prototype="data.lookup">
+                <port name="key" type="string" value="y"/>
+            </node>
+            <node name="make_point1" position="1.00,12.00" prototype="corevector.make_point"/>
+            <node name="make_point3" position="-1.00,2.00" prototype="corevector.make_point"/>
+            <node name="multiply1" position="1.00,8.00" prototype="math.multiply">
+                <port name="value1" type="float" value="-1.0"/>
+            </node>
+            <node name="multiply2" position="-4.00,9.00" prototype="math.multiply">
+                <port name="value1" type="float" value="1.0"/>
+            </node>
+            <node name="multiply3" position="-1.00,9.00" prototype="math.multiply">
+                <port name="value1" type="float" value="1.0"/>
+            </node>
+            <node name="multiply4" position="3.00,9.00" prototype="math.multiply">
+                <port name="value1" type="float" value="1.0"/>
+            </node>
+            <node name="multiply5" position="6.00,9.00" prototype="math.multiply">
+                <port name="value1" type="float" value="1.0"/>
+            </node>
+            <node name="multiply6" position="-1.00,11.00" prototype="math.multiply"/>
+            <node name="multiply7" position="4.00,11.00" prototype="math.multiply"/>
+            <node name="number1" position="1.00,5.00" prototype="math.number"/>
+            <node name="radians1" position="1.00,6.00" prototype="math.radians"/>
+            <node name="sin1" position="3.00,7.00" prototype="math.sin"/>
+            <node name="x" position="-2.00,4.00" prototype="math.number">
+                <port name="value" type="float" value="100.0"/>
+            </node>
+            <node name="y" position="3.00,4.00" prototype="math.number"/>
+            <port childReference="make_point3.x" description="The X position of the point." label="" name="x" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="make_point3.y" description="The Y position of the point." label="" name="y" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="number1.value" description="" label="" name="theta" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="multiply6.value2" description="" label="" name="scale_x" range="value" type="float" value="1.0" widget="float"/>
+            <port childReference="multiply7.value2" description="" label="" name="scale_y" range="value" type="float" value="1.0" widget="float"/>
+            <conn input="multiply1.value2" output="sin1"/>
+            <conn input="radians1.degrees" output="number1"/>
+            <conn input="cos1.value" output="radians1"/>
+            <conn input="sin1.value" output="radians1"/>
+            <conn input="add1.value1" output="multiply2"/>
+            <conn input="add1.value2" output="multiply3"/>
+            <conn input="multiply2.value2" output="cos1"/>
+            <conn input="multiply3.value2" output="multiply1"/>
+            <conn input="add2.value1" output="multiply4"/>
+            <conn input="add2.value2" output="multiply5"/>
+            <conn input="multiply2.value1" output="x"/>
+            <conn input="multiply3.value1" output="y"/>
+            <conn input="multiply4.value1" output="x"/>
+            <conn input="multiply5.value1" output="y"/>
+            <conn input="multiply4.value2" output="sin1"/>
+            <conn input="multiply5.value2" output="cos1"/>
+            <conn input="multiply6.value1" output="add1"/>
+            <conn input="make_point1.x" output="multiply6"/>
+            <conn input="multiply7.value1" output="add2"/>
+            <conn input="make_point1.y" output="multiply7"/>
+            <conn input="x.value" output="getX"/>
+            <conn input="getX.list" output="make_point3"/>
+            <conn input="y.value" output="getY"/>
+            <conn input="getY.list" output="make_point3"/>
+        </node>
+        <node name="add3" position="24.00,8.00" prototype="math.add"/>
+        <node name="add4" position="19.00,8.00" prototype="math.add"/>
+        <node name="colorize1" position="3.00,4.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#00000000"/>
+            <port name="strokeWidth" type="float" value="5.0"/>
+        </node>
+        <node name="colorize2" position="9.00,4.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#ebeb00ff"/>
+            <port name="stroke" type="color" value="#e2ff00d6"/>
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="combine1" position="6.00,6.00" prototype="list.combine"/>
+        <node name="connect1" position="3.00,4.00" prototype="corevector.connect">
+            <port name="closed" type="boolean" value="false"/>
+        </node>
+        <node name="cos2" position="19.00,5.00" prototype="math.cos"/>
+        <node name="ellipse1" position="9.00,3.00" prototype="corevector.ellipse"/>
+        <node name="frequency" position="6.00,1.00" prototype="core.network" renderedChild="floor1">
+            <node name="divide1" position="-2.00,10.00" prototype="math.divide">
+                <port name="value2" type="float" value="12.0"/>
+            </node>
+            <node name="floor1" position="-2.00,11.00" prototype="math.floor"/>
+            <node name="frame1" position="-2.00,9.00" prototype="core.frame"/>
+            <port childReference="divide1.value2" description="" label="" name="fps" range="value" type="float" value="12.0" widget="float"/>
+            <conn input="divide1.value1" output="frame1"/>
+            <conn input="floor1.value" output="divide1"/>
+        </node>
+        <node name="getX1" position="19.00,1.00" prototype="data.lookup"/>
+        <node name="getY1" position="22.00,1.00" prototype="data.lookup">
+            <port name="key" type="string" value="y"/>
+        </node>
+        <node name="make_point2" position="21.00,10.00" prototype="corevector.make_point"/>
+        <node name="make_point4" position="20.00,0.00" prototype="corevector.make_point"/>
+        <node name="multiply10" position="19.00,9.00" prototype="math.multiply"/>
+        <node name="multiply11" position="24.00,9.00" prototype="math.multiply"/>
+        <node name="multiply12" position="21.00,6.00" prototype="math.multiply">
+            <port name="value1" type="float" value="-1.0"/>
+        </node>
+        <node name="multiply13" position="16.00,7.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="multiply14" position="19.00,7.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="multiply8" position="23.00,7.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="multiply9" position="26.00,7.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="number2" position="21.00,3.00" prototype="math.number"/>
+        <node name="radians2" position="21.00,4.00" prototype="math.radians"/>
+        <node name="random_numbers1" position="3.00,1.00" prototype="math.random_numbers">
+            <port name="end" type="float" value="-11.0"/>
+        </node>
+        <node name="rotate1" position="5.00,5.00" prototype="corevector.rotate"/>
+        <node name="sample1" position="1.00,2.00" prototype="math.sample"/>
+        <node name="sample2" position="6.00,4.00" prototype="math.sample">
+            <port name="amount" type="int" value="8"/>
+            <port name="end" type="float" value="314.0"/>
+        </node>
+        <node name="shift1" position="4.00,2.00" prototype="list.shift"/>
+        <node name="sin2" position="23.00,5.00" prototype="math.sin"/>
+        <node name="x1" position="18.00,2.00" prototype="math.number">
+            <port name="value" type="float" value="100.0"/>
+        </node>
+        <node name="y1" position="23.00,2.00" prototype="math.number"/>
+        <conn input="colorize1.shape" output="connect1"/>
+        <conn input="shift1.list" output="random_numbers1"/>
+        <conn input="rotate1.shape" output="colorize1"/>
+        <conn input="rotate1.angle" output="sample2"/>
+        <conn input="shift1.amount" output="frequency"/>
+        <conn input="multiply12.value2" output="sin2"/>
+        <conn input="radians2.degrees" output="number2"/>
+        <conn input="cos2.value" output="radians2"/>
+        <conn input="sin2.value" output="radians2"/>
+        <conn input="add4.value1" output="multiply13"/>
+        <conn input="add4.value2" output="multiply14"/>
+        <conn input="multiply13.value2" output="cos2"/>
+        <conn input="multiply14.value2" output="multiply12"/>
+        <conn input="add3.value1" output="multiply8"/>
+        <conn input="add3.value2" output="multiply9"/>
+        <conn input="multiply13.value1" output="x1"/>
+        <conn input="multiply14.value1" output="y1"/>
+        <conn input="multiply8.value1" output="x1"/>
+        <conn input="multiply9.value1" output="y1"/>
+        <conn input="multiply8.value2" output="sin2"/>
+        <conn input="multiply9.value2" output="cos2"/>
+        <conn input="multiply10.value1" output="add4"/>
+        <conn input="make_point2.x" output="multiply10"/>
+        <conn input="multiply11.value1" output="add3"/>
+        <conn input="make_point2.y" output="multiply11"/>
+        <conn input="x1.value" output="getX1"/>
+        <conn input="getX1.list" output="make_point4"/>
+        <conn input="y1.value" output="getY1"/>
+        <conn input="getY1.list" output="make_point4"/>
+        <conn input="ONBasis.x" output="sample1"/>
+        <conn input="ONBasis.y" output="shift1"/>
+        <conn input="connect1.points" output="ONBasis"/>
+        <conn input="colorize2.shape" output="ellipse1"/>
+        <conn input="combine1.list1" output="rotate1"/>
+        <conn input="combine1.list2" output="colorize2"/>
+    </node>
+</ndbx>

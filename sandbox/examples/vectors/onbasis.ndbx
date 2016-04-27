@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="7043b61f-cf25-4d21-9987-bddc95550995">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network">
+        <node name="add3" position="28.00,10.00" prototype="math.add"/>
+        <node name="add4" position="23.00,10.00" prototype="math.add"/>
+        <node name="cos2" position="23.00,7.00" prototype="math.cos"/>
+        <node name="getX1" position="23.00,3.00" prototype="data.lookup"/>
+        <node name="getY1" position="26.00,3.00" prototype="data.lookup">
+            <port name="key" type="string" value="y"/>
+        </node>
+        <node name="make_point2" position="25.00,12.00" prototype="corevector.make_point"/>
+        <node name="make_point4" position="24.00,2.00" prototype="corevector.make_point"/>
+        <node name="multiply10" position="23.00,11.00" prototype="math.multiply"/>
+        <node name="multiply11" position="28.00,11.00" prototype="math.multiply"/>
+        <node name="multiply12" position="25.00,8.00" prototype="math.multiply">
+            <port name="value1" type="float" value="-1.0"/>
+        </node>
+        <node name="multiply13" position="20.00,9.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="multiply14" position="23.00,9.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="multiply8" position="27.00,9.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="multiply9" position="30.00,9.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="number2" position="25.00,5.00" prototype="math.number"/>
+        <node name="radians2" position="25.00,6.00" prototype="math.radians"/>
+        <node name="sin2" position="27.00,7.00" prototype="math.sin"/>
+        <node name="x1" position="22.00,4.00" prototype="math.number">
+            <port name="value" type="float" value="100.0"/>
+        </node>
+        <node name="y1" position="27.00,4.00" prototype="math.number"/>
+        <conn input="multiply12.value2" output="sin2"/>
+        <conn input="radians2.degrees" output="number2"/>
+        <conn input="cos2.value" output="radians2"/>
+        <conn input="sin2.value" output="radians2"/>
+        <conn input="add4.value1" output="multiply13"/>
+        <conn input="add4.value2" output="multiply14"/>
+        <conn input="multiply13.value2" output="cos2"/>
+        <conn input="multiply14.value2" output="multiply12"/>
+        <conn input="add3.value1" output="multiply8"/>
+        <conn input="add3.value2" output="multiply9"/>
+        <conn input="multiply13.value1" output="x1"/>
+        <conn input="multiply14.value1" output="y1"/>
+        <conn input="multiply8.value1" output="x1"/>
+        <conn input="multiply9.value1" output="y1"/>
+        <conn input="multiply8.value2" output="sin2"/>
+        <conn input="multiply9.value2" output="cos2"/>
+        <conn input="multiply10.value1" output="add4"/>
+        <conn input="make_point2.x" output="multiply10"/>
+        <conn input="multiply11.value1" output="add3"/>
+        <conn input="make_point2.y" output="multiply11"/>
+        <conn input="x1.value" output="getX1"/>
+        <conn input="getX1.list" output="make_point4"/>
+        <conn input="y1.value" output="getY1"/>
+        <conn input="getY1.list" output="make_point4"/>
+    </node>
+</ndbx>
