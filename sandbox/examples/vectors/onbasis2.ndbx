@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="7043b61f-cf25-4d21-9987-bddc95550995">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="Ux" position="15.00,9.00" prototype="core.network" renderedChild="textpath1">
+            <node name="format_number1" position="5.00,5.00" prototype="string.format_number"/>
+            <node name="textpath1" position="5.00,6.00" prototype="corevector.textpath">
+                <port name="position" type="point" value="-50.00,0.00"/>
+            </node>
+            <port childReference="format_number1.value" description="" label="" name="value" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="format_number1.format" description="" label="" name="precision" range="value" type="string" value="%.2f" widget="string"/>
+            <port childReference="textpath1.font_name" description="The name of the font." label="" name="font_name" range="value" type="string" value="Verdana" widget="font"/>
+            <port childReference="textpath1.font_size" description="The size of the font." label="" name="font_size" range="value" type="float" value="24.0" widget="float"/>
+            <port childReference="textpath1.align" description="The alignment of the text." label="" name="align" range="value" type="string" value="CENTER" widget="menu">
+                <menu key="LEFT" label="Left"/>
+                <menu key="CENTER" label="Center"/>
+                <menu key="RIGHT" label="Right"/>
+                <menu key="JUSTIFY" label="Justify"/>
+            </port>
+            <port childReference="textpath1.position" description="The center point of the text." label="" name="position" range="value" type="point" value="-50.00,0.00" widget="point"/>
+            <port childReference="textpath1.width" description="The maximum width of the text." label="" min="0.0" name="width" range="value" type="float" value="0.0" widget="float"/>
+            <conn input="textpath1.text" output="format_number1"/>
+        </node>
+        <node name="Uy" position="16.00,10.00" prototype="core.network" renderedChild="textpath1">
+            <node name="format_number1" position="5.00,5.00" prototype="string.format_number"/>
+            <node name="textpath1" position="5.00,6.00" prototype="corevector.textpath">
+                <port name="position" type="point" value="-50.00,40.00"/>
+            </node>
+            <port childReference="format_number1.value" description="" label="" name="value" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="format_number1.format" description="" label="" name="precision" range="value" type="string" value="%.2f" widget="string"/>
+            <port childReference="textpath1.font_name" description="The name of the font." label="" name="font_name" range="value" type="string" value="Verdana" widget="font"/>
+            <port childReference="textpath1.font_size" description="The size of the font." label="" name="font_size" range="value" type="float" value="24.0" widget="float"/>
+            <port childReference="textpath1.align" description="The alignment of the text." label="" name="align" range="value" type="string" value="CENTER" widget="menu">
+                <menu key="LEFT" label="Left"/>
+                <menu key="CENTER" label="Center"/>
+                <menu key="RIGHT" label="Right"/>
+                <menu key="JUSTIFY" label="Justify"/>
+            </port>
+            <port childReference="textpath1.position" description="The center point of the text." label="" name="position" range="value" type="point" value="-50.00,40.00" widget="point"/>
+            <port childReference="textpath1.width" description="The maximum width of the text." label="" min="0.0" name="width" range="value" type="float" value="0.0" widget="float"/>
+            <conn input="textpath1.text" output="format_number1"/>
+        </node>
+        <node name="Vx" position="18.00,9.00" prototype="core.network" renderedChild="textpath1">
+            <node name="format_number1" position="5.00,5.00" prototype="string.format_number"/>
+            <node name="textpath1" position="5.00,6.00" prototype="corevector.textpath">
+                <port name="position" type="point" value="50.00,0.00"/>
+            </node>
+            <port childReference="format_number1.value" description="" label="" name="value" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="format_number1.format" description="" label="" name="precision" range="value" type="string" value="%.2f" widget="string"/>
+            <port childReference="textpath1.font_name" description="The name of the font." label="" name="font_name" range="value" type="string" value="Verdana" widget="font"/>
+            <port childReference="textpath1.font_size" description="The size of the font." label="" name="font_size" range="value" type="float" value="24.0" widget="float"/>
+            <port childReference="textpath1.align" description="The alignment of the text." label="" name="align" range="value" type="string" value="CENTER" widget="menu">
+                <menu key="LEFT" label="Left"/>
+                <menu key="CENTER" label="Center"/>
+                <menu key="RIGHT" label="Right"/>
+                <menu key="JUSTIFY" label="Justify"/>
+            </port>
+            <port childReference="textpath1.position" description="The center point of the text." label="" name="position" range="value" type="point" value="50.00,0.00" widget="point"/>
+            <port childReference="textpath1.width" description="The maximum width of the text." label="" min="0.0" name="width" range="value" type="float" value="0.0" widget="float"/>
+            <conn input="textpath1.text" output="format_number1"/>
+        </node>
+        <node name="Vy" position="19.00,10.00" prototype="core.network" renderedChild="textpath1">
+            <node name="format_number1" position="5.00,5.00" prototype="string.format_number"/>
+            <node name="textpath1" position="5.00,6.00" prototype="corevector.textpath">
+                <port name="position" type="point" value="50.00,40.00"/>
+            </node>
+            <port childReference="format_number1.value" description="" label="" name="value" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="format_number1.format" description="" label="" name="precision" range="value" type="string" value="%.2f" widget="string"/>
+            <port childReference="textpath1.font_name" description="The name of the font." label="" name="font_name" range="value" type="string" value="Verdana" widget="font"/>
+            <port childReference="textpath1.font_size" description="The size of the font." label="" name="font_size" range="value" type="float" value="24.0" widget="float"/>
+            <port childReference="textpath1.align" description="The alignment of the text." label="" name="align" range="value" type="string" value="CENTER" widget="menu">
+                <menu key="LEFT" label="Left"/>
+                <menu key="CENTER" label="Center"/>
+                <menu key="RIGHT" label="Right"/>
+                <menu key="JUSTIFY" label="Justify"/>
+            </port>
+            <port childReference="textpath1.position" description="The center point of the text." label="" name="position" range="value" type="point" value="50.00,40.00" widget="point"/>
+            <port childReference="textpath1.width" description="The maximum width of the text." label="" min="0.0" name="width" range="value" type="float" value="0.0" widget="float"/>
+            <conn input="textpath1.text" output="format_number1"/>
+        </node>
+        <node name="add1" position="21.00,8.00" prototype="math.add"/>
+        <node name="add2" position="26.00,8.00" prototype="math.add"/>
+        <node name="add3" position="26.00,6.00" prototype="math.add"/>
+        <node name="add4" position="21.00,6.00" prototype="math.add"/>
+        <node name="angle" position="26.00,1.00" prototype="math.number"/>
+        <node name="combine1" position="21.00,14.00" prototype="list.combine"/>
+        <node name="combine2" position="16.00,11.00" prototype="list.combine"/>
+        <node position="22.00,3.00" prototype="math.cos"/>
+        <node name="ellipse1" position="24.00,10.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="4.0"/>
+            <port name="height" type="float" value="4.0"/>
+        </node>
+        <node name="in_radians" position="26.00,2.00" prototype="math.radians"/>
+        <node name="make_point2" position="24.00,9.00" prototype="corevector.make_point"/>
+        <node name="make_point4" position="21.00,1.00" prototype="corevector.make_point">
+            <port name="x" type="float" value="1.0"/>
+        </node>
+        <node name="multiply13" position="19.00,5.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="multiply14" position="22.00,5.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="multiply8" position="25.00,5.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="multiply9" position="28.00,5.00" prototype="math.multiply">
+            <port name="value1" type="float" value="1.0"/>
+        </node>
+        <node name="negate" position="27.00,4.00" prototype="math.multiply">
+            <port name="value1" type="float" value="-1.0"/>
+        </node>
+        <node name="scaleX" position="21.00,7.00" prototype="math.multiply">
+            <port name="value2" type="float" value="100.0"/>
+        </node>
+        <node name="scaleY" position="26.00,7.00" prototype="math.multiply">
+            <port name="value2" type="float" value="100.0"/>
+        </node>
+        <node position="26.00,3.00" prototype="math.sin"/>
+        <node name="translate1" position="16.00,12.00" prototype="corevector.translate">
+            <port name="translate" type="point" value="-205.00,243.00"/>
+        </node>
+        <node name="x" position="20.00,2.00" prototype="data.lookup"/>
+        <node name="y" position="23.00,2.00" prototype="data.lookup">
+            <port name="key" type="string" value="y"/>
+        </node>
+        <conn input="add4.value1" output="multiply13"/>
+        <conn input="add4.value2" output="multiply14"/>
+        <conn input="add3.value1" output="multiply8"/>
+        <conn input="add3.value2" output="multiply9"/>
+        <conn input="x.list" output="make_point4"/>
+        <conn input="multiply13.value1" output="x"/>
+        <conn input="multiply8.value1" output="x"/>
+        <conn input="y.list" output="make_point4"/>
+        <conn input="multiply14.value1" output="y"/>
+        <conn input="multiply9.value1" output="y"/>
+        <conn input="scaleX.value1" output="add4"/>
+        <conn input="scaleY.value1" output="add3"/>
+        <conn input="in_radians.degrees" output="angle"/>
+        <conn input="multiply14.value2" output="negate"/>
+        <conn input="multiply13.value2" output="cos"/>
+        <conn input="multiply9.value2" output="cos"/>
+        <conn input="cos.value" output="in_radians"/>
+        <conn input="multiply8.value2" output="sin"/>
+        <conn input="sin.value" output="in_radians"/>
+        <conn input="negate.value2" output="sin"/>
+        <conn input="translate1.shape" output="combine2"/>
+        <conn input="combine1.list1" output="translate1"/>
+        <conn input="ellipse1.position" output="make_point2"/>
+        <conn input="combine1.list2" output="ellipse1"/>
+        <conn input="add1.value1" output="scaleX"/>
+        <conn input="make_point2.x" output="add1"/>
+        <conn input="make_point2.y" output="add2"/>
+        <conn input="add2.value1" output="scaleY"/>
+        <conn input="combine2.list1" output="Ux"/>
+        <conn input="Ux.value" output="cos"/>
+        <conn input="combine2.list2" output="Uy"/>
+        <conn input="Uy.value" output="sin"/>
+        <conn input="combine2.list3" output="Vx"/>
+        <conn input="Vx.value" output="negate"/>
+        <conn input="combine2.list4" output="Vy"/>
+        <conn input="Vy.value" output="cos"/>
+    </node>
+</ndbx>
