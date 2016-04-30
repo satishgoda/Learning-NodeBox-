@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="565abf73-f56d-4d23-967a-d61c8a65fa07">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine3">
+        <node name="add1" position="9.00,2.00" prototype="math.add">
+            <port name="value2" type="float" value="198.0"/>
+        </node>
+        <node name="add2" position="14.00,3.00" prototype="math.add">
+            <port name="value2" type="float" value="-102.0"/>
+        </node>
+        <node name="combine1" position="11.00,9.00" prototype="list.combine"/>
+        <node name="combine2" position="16.00,9.00" prototype="list.combine"/>
+        <node name="combine3" position="13.00,11.00" prototype="list.combine"/>
+        <node name="copy1" position="4.00,1.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="3"/>
+            <port name="translate" type="point" value="150.00,0.00"/>
+        </node>
+        <node name="count1" position="0.00,3.00" prototype="list.count"/>
+        <node name="count2" position="1.00,6.00" prototype="list.count"/>
+        <node name="count3" position="-2.00,6.00" prototype="list.count"/>
+        <node name="ellipse1" position="12.00,7.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="10.0"/>
+            <port name="height" type="float" value="10.0"/>
+        </node>
+        <node name="ellipse2" position="17.00,7.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="10.0"/>
+            <port name="height" type="float" value="10.0"/>
+        </node>
+        <node name="first1" position="-1.00,7.00" prototype="list.first"/>
+        <node name="first2" position="2.00,7.00" prototype="list.first"/>
+        <node name="frame1" position="11.00,-1.00" prototype="core.frame"/>
+        <node name="lookup1" outputRange="list" position="2.00,5.00" prototype="data.lookup">
+            <port name="key" type="string" value="points"/>
+        </node>
+        <node name="lookup2" position="-1.00,5.00" prototype="data.lookup">
+            <port name="key" type="string" value="points"/>
+        </node>
+        <node name="negate" position="12.00,1.00" prototype="math.multiply">
+            <port name="value2" type="float" value="-1.0"/>
+        </node>
+        <node name="network1" position="11.00,5.00" prototype="core.network" renderedChild="first1">
+            <node name="first1" position="0.00,2.00" prototype="list.first"/>
+            <node name="lookup1" outputRange="list" position="0.00,1.00" prototype="data.lookup">
+                <port name="key" type="string" value="points"/>
+            </node>
+            <port childReference="lookup1.list" description="The input value." label="" name="list" range="value" type="list" widget="none"/>
+            <conn input="first1.list" output="lookup1"/>
+        </node>
+        <node name="network2" position="16.00,5.00" prototype="core.network" renderedChild="last1">
+            <node name="last1" position="0.00,2.00" prototype="list.last"/>
+            <node name="lookup1" outputRange="list" position="0.00,1.00" prototype="data.lookup">
+                <port name="key" type="string" value="points"/>
+            </node>
+            <port childReference="lookup1.list" description="The input value." label="" name="list" range="value" type="list" widget="none"/>
+            <conn input="last1.list" output="lookup1"/>
+        </node>
+        <node name="rect1" position="4.00,0.00" prototype="corevector.rect">
+            <port name="position" type="point" value="-148.00,50.00"/>
+        </node>
+        <node name="rotate1" position="9.00,7.00" prototype="corevector.rotate">
+            <port name="angle" type="float" value="-79.0"/>
+        </node>
+        <node name="rotate2" position="15.00,8.00" prototype="corevector.rotate">
+            <port name="angle" type="float" value="80.0"/>
+        </node>
+        <conn input="copy1.shape" output="rect1"/>
+        <conn input="count1.list" output="copy1"/>
+        <conn input="lookup2.list" output="copy1"/>
+        <conn input="count3.list" output="lookup2"/>
+        <conn input="network1.list" output="copy1"/>
+        <conn input="lookup1.list" output="copy1"/>
+        <conn input="combine1.list2" output="ellipse1"/>
+        <conn input="rotate1.shape" output="copy1"/>
+        <conn input="combine1.list1" output="rotate1"/>
+        <conn input="network2.list" output="copy1"/>
+        <conn input="rotate1.origin" output="network1"/>
+        <conn input="ellipse1.position" output="network1"/>
+        <conn input="combine2.list2" output="ellipse2"/>
+        <conn input="rotate2.shape" output="copy1"/>
+        <conn input="combine2.list1" output="rotate2"/>
+        <conn input="rotate2.origin" output="network2"/>
+        <conn input="ellipse2.position" output="network2"/>
+        <conn input="combine3.list1" output="combine1"/>
+        <conn input="combine3.list2" output="combine2"/>
+        <conn input="count2.list" output="lookup1"/>
+        <conn input="negate.value1" output="frame1"/>
+        <conn input="first1.list" output="lookup2"/>
+        <conn input="first2.list" output="lookup1"/>
+        <conn input="add1.value1" output="frame1"/>
+        <conn input="rotate1.angle" output="add1"/>
+        <conn input="add2.value1" output="negate"/>
+        <conn input="rotate2.angle" output="add2"/>
+    </node>
+</ndbx>
