@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="39c84547-0c64-42eb-90b6-52cf8d286471">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="reverse1">
+        <node name="angle1" position="9.00,4.00" prototype="math.angle"/>
+        <node name="colorize1" position="2.00,5.00" prototype="corevector.colorize">
+            <port name="stroke" type="color" value="#c50000ff"/>
+            <port name="strokeWidth" type="float" value="3.0"/>
+        </node>
+        <node name="colorize2" position="12.00,5.00" prototype="corevector.colorize">
+            <port name="strokeWidth" type="float" value="3.0"/>
+        </node>
+        <node name="combine1" position="0.00,2.00" prototype="list.combine"/>
+        <node name="combine2" position="6.00,10.00" prototype="list.combine"/>
+        <node name="distance1" position="6.00,4.00" prototype="math.distance"/>
+        <node name="freehand1" position="10.00,1.00" prototype="corevector.freehand">
+            <port name="path" type="string" value="M199.50,-217.50  199.50,-216.50  198.50,-214.50  198.50,-213.50 "/>
+        </node>
+        <node name="line1" position="2.00,4.00" prototype="corevector.line"/>
+        <node name="line2" position="12.00,4.00" prototype="corevector.line"/>
+        <node name="make_point1" position="-2.00,1.00" prototype="corevector.make_point">
+            <port name="x" type="float" value="-100.0"/>
+            <port name="y" type="float" value="-100.0"/>
+        </node>
+        <node name="make_point2" position="1.00,1.00" prototype="corevector.make_point">
+            <port name="x" type="float" value="-100.0"/>
+            <port name="y" type="float" value="100.0"/>
+        </node>
+        <node name="make_point3" position="6.00,1.00" prototype="corevector.make_point"/>
+        <node name="make_point4" position="6.00,5.00" prototype="corevector.make_point"/>
+        <node name="number1" position="-1.00,4.00" prototype="math.number">
+            <port name="value" type="float" value="19.0"/>
+        </node>
+        <node name="resample1" position="10.00,2.00" prototype="corevector.resample">
+            <port name="method" type="string" value="amount"/>
+            <port name="points" type="int" value="1"/>
+        </node>
+        <node name="reverse1" position="6.00,11.00" prototype="list.reverse"/>
+        <node name="rotate1" position="2.00,8.00" prototype="corevector.rotate"/>
+        <node name="scale1" position="2.00,6.00" prototype="corevector.scale">
+            <port name="scale" type="point" value="10.00,10.00"/>
+        </node>
+        <node name="translate2" position="2.00,7.00" prototype="corevector.translate"/>
+        <conn input="colorize1.shape" output="line1"/>
+        <conn input="combine1.list2" output="make_point2"/>
+        <conn input="combine1.list1" output="make_point1"/>
+        <conn input="resample1.shape" output="freehand1"/>
+        <conn input="line2.point1" output="make_point3"/>
+        <conn input="line2.point2" output="resample1"/>
+        <conn input="colorize2.shape" output="line2"/>
+        <conn input="angle1.point1" output="make_point3"/>
+        <conn input="angle1.point2" output="resample1"/>
+        <conn input="combine2.list2" output="colorize2"/>
+        <conn input="rotate1.angle" output="angle1"/>
+        <conn input="rotate1.shape" output="translate2"/>
+        <conn input="distance1.point1" output="make_point3"/>
+        <conn input="distance1.point2" output="resample1"/>
+        <conn input="make_point4.x" output="distance1"/>
+        <conn input="translate2.translate" output="make_point4"/>
+        <conn input="scale1.shape" output="colorize1"/>
+        <conn input="translate2.shape" output="scale1"/>
+        <conn input="combine2.list1" output="rotate1"/>
+        <conn input="line1.point2" output="make_point3"/>
+        <conn input="line1.point1" output="combine1"/>
+        <conn input="scale1.scale" output="number1"/>
+        <conn input="reverse1.list" output="combine2"/>
+    </node>
+</ndbx>
