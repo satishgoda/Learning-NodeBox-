@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="55b6867a-e88d-4b35-8483-8252b64edda5">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="draw_normals">
+        <node name="create_coords" position="5.00,-1.00" prototype="math.coordinates"/>
+        <node name="draw_edges" position="5.00,3.00" prototype="corevector.line"/>
+        <node name="draw_normals" position="5.00,4.00" prototype="core.network" renderedChild="combine1">
+            <node position="1.00,3.00" prototype="math.angle"/>
+            <node name="centroid1" position="-2.00,1.00" prototype="corevector.centroid"/>
+            <node name="centroid2" position="3.00,7.00" prototype="corevector.centroid"/>
+            <node name="col_line_seg" position="-4.00,8.00" prototype="corevector.colorize">
+                <port name="strokeWidth" type="float" value="2.0"/>
+            </node>
+            <node name="col_normal" position="-1.00,8.00" prototype="corevector.colorize">
+                <port name="stroke" type="color" value="#ff0000ff"/>
+                <port name="strokeWidth" type="float" value="1.0"/>
+            </node>
+            <node name="combine1" position="-1.00,10.00" prototype="list.combine"/>
+            <node name="cre_normal" position="1.00,6.00" prototype="corevector.line_angle">
+                <port name="angle" type="float" value="-45.0"/>
+            </node>
+            <node position="4.00,4.00" prototype="math.distance"/>
+            <node position="1.00,2.00" prototype="list.first"/>
+            <node position="4.00,2.00" prototype="list.last"/>
+            <node name="normal_length" position="8.00,4.00" prototype="math.number">
+                <port name="value" type="float" value="100.0"/>
+            </node>
+            <node name="null1" position="-3.00,-1.00" prototype="corevector.null"/>
+            <node name="ortho_angle" position="1.00,4.00" prototype="math.add">
+                <port name="value1" type="float" value="90.0"/>
+            </node>
+            <node name="points" position="2.00,1.00" prototype="corevector.point"/>
+            <node name="rotate1" position="2.00,9.00" prototype="corevector.rotate">
+                <port name="angle" type="float" value="180.0"/>
+                <port name="origin" type="point" value="-28.00,33.00"/>
+            </node>
+            <node name="switch1" position="5.00,5.00" prototype="list.switch">
+                <port name="index" type="int" value="1"/>
+            </node>
+            <node name="text_on_path1" position="2.00,8.00" prototype="corevector.text_on_path">
+                <port name="text" type="string" value="normal"/>
+                <port name="font_name" type="string" value="Tunga"/>
+                <port name="font_size" type="float" value="16.0"/>
+                <port name="baseline_offset" type="float" value="4.0"/>
+            </node>
+            <node name="user_normal" position="7.00,3.00" prototype="math.boolean">
+                <port name="value" type="boolean" value="true"/>
+            </node>
+            <port childReference="null1.shape" description="The input shape." label="" name="shape" range="value" type="geometry" widget="none"/>
+            <port childReference="user_normal.value" description="" label="" name="Use Custom Normal Length" range="value" type="boolean" value="true" widget="toggle"/>
+            <port childReference="normal_length.value" description="" label="" name="Custom Normal Length" range="value" type="float" value="100.0" widget="float"/>
+            <conn input="cre_normal.position" output="centroid1"/>
+            <conn input="combine1.list2" output="col_normal"/>
+            <conn input="col_normal.shape" output="cre_normal"/>
+            <conn input="combine1.list1" output="col_line_seg"/>
+            <conn input="first.list" output="points"/>
+            <conn input="last.list" output="points"/>
+            <conn input="angle.point1" output="first"/>
+            <conn input="angle.point2" output="last"/>
+            <conn input="distance.point1" output="first"/>
+            <conn input="distance.point2" output="last"/>
+            <conn input="cre_normal.angle" output="ortho_angle"/>
+            <conn input="ortho_angle.value2" output="angle"/>
+            <conn input="text_on_path1.path" output="cre_normal"/>
+            <conn input="rotate1.shape" output="text_on_path1"/>
+            <conn input="combine1.list3" output="rotate1"/>
+            <conn input="centroid2.shape" output="cre_normal"/>
+            <conn input="rotate1.origin" output="centroid2"/>
+            <conn input="centroid1.shape" output="null1"/>
+            <conn input="points.value" output="null1"/>
+            <conn input="col_line_seg.shape" output="null1"/>
+            <conn input="switch1.input1" output="distance"/>
+            <conn input="cre_normal.distance" output="switch1"/>
+            <conn input="switch1.input2" output="normal_length"/>
+            <conn input="switch1.index" output="user_normal"/>
+        </node>
+        <node name="sample_angles" position="5.00,-2.00" prototype="math.sample">
+            <port name="amount" type="int" value="6"/>
+            <port name="start" type="float" value="-45.0"/>
+            <port name="end" type="float" value="-215.0"/>
+        </node>
+        <node name="shift_coords" position="6.00,1.00" prototype="list.shift"/>
+        <conn input="create_coords.angle" output="sample_angles"/>
+        <conn input="shift_coords.list" output="create_coords"/>
+        <conn input="draw_normals.shape" output="draw_edges"/>
+        <conn input="draw_edges.point2" output="shift_coords"/>
+        <conn input="draw_edges.point1" output="create_coords"/>
+    </node>
+</ndbx>
